@@ -92,7 +92,7 @@ export const projects: Project[] = [
     {
       title: 'Tic-Tac-Toe',
       description: 'Tic-Tac-Toe is a simple two-player game where players take turns marking spaces on a 3x3 grid with Xs and Os. The goal is to align three marks in a row, either horizontally, vertically, or diagonally. It’s a quick and engaging strategy game, often played for fun or as a learning tool.',
-      technologies: ['JavaScript', 'Node.js', 'Express', 'EJS', 'CSS', 'MongoDb', 'Bootstrap'],
+      technologies: ['JavaScript', 'CSS', 'HTML'],
       link: 'https://example.com',
       image: 'ttt.svg',
       githubLink: 'https://github.com/SSujoy-Samanta/Tic-Tac--Toe',
