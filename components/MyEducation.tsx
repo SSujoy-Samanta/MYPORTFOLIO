@@ -14,7 +14,7 @@ export const MyEducation = () => {
         <h2 className="text-3xl font-semibold mb-12 text-teal-500">My Journey</h2>
 
         {/* Education Section */}
-        <div className="grid md:grid-cols-2 xxs:grid-cols-1 w-full gap-x-20">
+        <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-x-20">
           <div className="col-span-1">
             <div className="flex justify-start flex-col animate-slideInLeft">
               <h2 className="text-3xl font-semibold mb-8 text-sky-500">Education</h2>
@@ -23,7 +23,7 @@ export const MyEducation = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-1 xxs:mt-5 md:mt-0 animate-slideInRight">
+          <div className="col-span-1 mt-5 md:mt-0 animate-slideInRight">
             <h2 className="text-3xl font-semibold mb-8 text-sky-500">Experience</h2>
             <div className={hasAnimated ? "animate-slideInRight" : ""}>
               <ExperienceModal />

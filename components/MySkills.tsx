@@ -39,7 +39,7 @@ export const MySkills = () => {
               Technical Skills
             </h3>
            
-            <ul className={`list-none ${showTechnical ? 'fadeIn' : ''} transition-all duration-1000 grid grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 overflow-auto  h-svh  pt-2`}>
+            <ul className={`list-none ${showTechnical ? 'fadeIn' : ''} transition-all duration-1000 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-1 md:gap-2 overflow-auto scrollbar h-svh  pt-2`}>
               {skills.technical.map((skill, index) => (
                 <li
                   key={index}
@@ -65,7 +65,7 @@ export const MySkills = () => {
           </div>
 
           {/* Professional Skills */}
-          <div className="overflow-auto h-4/6 p-6  bg-indigo-800 bg-opacity-50 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-500 lg:col-span-2 animate-slideInUp">
+          <div className="overflow-auto md:h-4/6 h-full p-6  bg-indigo-800 bg-opacity-50 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-500 lg:col-span-2 animate-slideInUp">
             <h3 className="text-2xl font-semibold text-cyan-500 mb-6 text-center transform hover:text-amber-600 transition-all duration-300">
               Professional Skills
             </h3>

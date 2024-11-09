@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '@/lib/project';
+import { PrimaryButton } from './Buttons/PrimaryButton';
 
 
 
@@ -19,7 +20,7 @@ export const MyProjects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="relative overflow-hidden bg-gray-800 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+              className="relative overflow-hidden bg-gray-800 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
@@ -38,20 +39,37 @@ export const MyProjects = () => {
                     <span key={i} className="bg-teal-500 text-xs text-center px-2 py-1 rounded-full">{tech}</span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  target="_blank"
+                <p
                   rel="noopener noreferrer"
                   className="inline-block mt-4 text-sm text-teal-400 hover:underline"
                 >
                   View Project
-                </a>
+                </p>
               </div>
-              <motion.div
+              <div
                 className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-teal-700 to-transparent opacity-0 hover:opacity-90 transition-opacity duration-300"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
+                
+              > 
+                <div className='flex h-full justify-center mx-auto items-end'>
+                    <div className='w-full flex justify-around  py-2'>
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 flex flex-col items-center justify-center">
+                            <img
+                                src='github.svg'
+                                alt='github'
+                                style={{ width: "50px", height: "50px" }}
+                                className="slider-image aspect-auto object-contain p-1 rounded-2xl "
+                            />
+                        </a>
+                        {
+                            project.link && <div className='py-4'>
+                                <PrimaryButton onClick={()=>{
+                                  alert(`${project.link}`);
+                                }}>Demo</PrimaryButton>
+                            </div>
+                        }
+                    </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

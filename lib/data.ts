@@ -95,6 +95,7 @@ export const skills = {
     { name: 'Postgress', img: 'postgress.svg',percentage:75 },
     { name: 'MongoDB', img: 'mongo.svg',percentage:80 },
     { name: 'Docker', img: 'docker.svg',percentage:75 },
+    { name: 'DevOps', img: 'devops.svg',percentage:70 },
     { name: 'AWS', img: 'aws.svg',percentage:65 },
     { name: 'GitHub', img: 'github.svg',percentage:80 },
     { name: 'JAVA', img: 'java.svg',percentage:70 },

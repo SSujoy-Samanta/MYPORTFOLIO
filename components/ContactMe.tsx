@@ -17,7 +17,7 @@ export const ContactMe= () => {
             <div className="animate-slideInLeft flex flex-col justify-center items-center">
                 <p className="text-lg font-bold text-gray-400">Get in Touch</p>
                 <h2 className="text-3xl font-semibold mb-12 text-amber-700">Contact Me</h2>
-                <p className="text-lg text-white mb-8 leading-relaxed break-words w-3/6">
+                <p className="text-lg text-white mb-8 leading-relaxed break-words lg:w-3/6 md:w-4/6 w-full">
                 Whether you're looking to discuss a new project, ask a question, or just say hello – I'm here to connect! I love collaborating on exciting projects, so feel free to reach out. Let’s turn ideas into impactful solutions together.
                 </p>
             </div>

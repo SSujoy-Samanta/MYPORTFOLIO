@@ -15,7 +15,7 @@ export const BarMenu = () => {
     };
 
     return (
-        <div className="flex w-6/12 justify-evenly items-center px-1 font-bold">
+        <div className="xl:flex w-6/12 justify-evenly items-center px-1 font-bold hidden">
             <div
                 className={`cursor-pointer ${isActive('/') ? 'border-b-4 border-blue-500' : ''}`}
                 onClick={() => handleMenuClick('/')}

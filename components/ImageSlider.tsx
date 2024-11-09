@@ -21,14 +21,14 @@ const images = [
 export default function ImageSlider() {
   return (
     <div className="slider">
-      <div className="slider-track flex justify-evenly items-center ">
+      <div className="slider-track">
         {images.map((src, index) => (
           <div className="slide" key={index}>
             <img
-            src={src}
-            alt={`slide-${index}`}
-            style={{ width: "70px", height: "70px" }}
-            className="slider-image aspect-auto object-contain mix-blend-darken border border-cyan-600 p-1 rounded-md "
+              src={src}
+              alt={`slide-${index}`}
+              style={{ width: "70px", height: "70px" }}
+              className="slider-image aspect-auto object-contain mix-blend-darken border border-cyan-600 p-1 rounded-md"
             />
           </div>
         ))}
