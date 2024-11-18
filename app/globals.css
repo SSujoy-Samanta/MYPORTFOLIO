@@ -119,4 +119,235 @@
   background-color: #030382; /* Color on hover */
 }
 
+@layer components {
+
+  @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+  }
+
+  .border-animate {
+      position: relative; /* Ensure pseudo-elements are positioned relative to the button */
+      overflow: hidden;   /* Hide any overflow from pseudo-elements */
+      border-radius: inherit; /* Ensure pseudo-elements have the same border radius */
+      background-color: transparent; /* Ensure background is transparent for the gradient */
+      padding: 2px;
+  }
+
   
+   
+  .border-animate::before, 
+  .border-animate::after {
+      content: ''; /* Empty pseudo-element */
+      position: absolute; /* Absolutely positioned inside the button */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit; /* Same border radius */
+      z-index: -1; /* Behind the content */
+      background-image: conic-gradient(from var(--angle), transparent 85%, rgb(13, 111, 13),white,red);
+      animation: borderMove 3s linear infinite; /* Border animation */
+  }
+
+  .border-animate::before {
+      filter: blur(1.5rem); /* Glow effect */
+      opacity: 0.5;
+  }
+
+  @keyframes borderMove {
+      0% {
+          --angle: 0deg; /* Start angle */
+      }
+      100% {
+          --angle: 360deg; /* End angle for full rotation */
+      }
+  }
+} 
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color:black; /* Replace with your background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  color: #333; /* Replace with your color */
+  animation: scaleIn 1.5s ease forwards;
+}
+
+/* Optional animation effect */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.letter p{
+  display: inline-block;
+  transform: scale(1);
+  animation: zoom 1s ease-in-out 6s forwards;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px rgb(5, 163, 174);
+  font-size: 150px;
+  color: transparent;
+}
+
+.back {
+  color: transparent;
+  -webkit-text-stroke: 4px rgb(5, 163, 174);
+  font-size: 150px; /* Or use Tailwind's text size utilities */
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: url("/bg.png");
+  background-position: 0 0;
+  background-size: cover; /* Adjust if needed */
+  animation: backani 20s linear infinite;
+  
+}
+
+
+@keyframes backani{
+  100%{
+    background-position: 2000px 0;
+  }
+}
+
+.letter p:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.letter p:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.letter p:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.letter p:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.letter p:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.letter p:nth-child(6) {
+  animation-delay: 1s;
+}
+.letter p:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.letter p:nth-child(8) {
+  animation-delay: 1.4s;
+}
+.letter p:nth-child(9) {
+  animation-delay: 1.6s;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+    
+  }
+}
+.logo{
+  color: transparent;
+  -webkit-text-stroke: 0.5px white;
+  background: linear-gradient(90deg, red, rgb(3, 171, 217), rgb(228, 19, 225));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-weight: bold;
+}
+@media (min-width: 375px) {
+  /* Tailwind `lg:` breakpoint */
+  .back {
+    font-size: 65px !important;
+    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
+    line-height: 4rem !important;
+  }
+  .letter p{
+    font-size: 65px !important;
+    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
+  }
+}
+@media (min-width: 425px) {
+  /* Tailwind `lg:` breakpoint */
+  .back {
+    font-size: 70px !important;
+    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
+    line-height: 4rem !important;
+  }
+  .letter p{
+    font-size: 70px !important;
+    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
+  }
+}
+
+@media (min-width: 640px) {
+  /* Tailwind `sm:` breakpoint */
+  .back {
+    font-size: 100px !important;
+    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
+    line-height: 7rem !important;
+  }
+  .letter p{
+    font-size: 100px !important;
+    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Tailwind `md:` breakpoint */
+  .back {
+    font-size: 120px !important;
+    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
+    line-height: 8rem !important;
+  }
+  .letter p{
+    font-size: 120px !important;
+    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Tailwind `lg:` breakpoint */
+  .back {
+    font-size: 150px !important;
+    -webkit-text-stroke: 4px rgb(5, 163, 174) !important;
+    line-height: 8rem !important;
+  }
+  .letter p{
+    font-size: 150px !important;
+  }
+}
+
+

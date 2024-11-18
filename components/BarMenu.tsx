@@ -17,37 +17,37 @@ export const BarMenu = () => {
     return (
         <div className="xl:flex w-6/12 justify-evenly items-center px-1 font-bold hidden">
             <div
-                className={`cursor-pointer ${isActive('/') ? 'border-b-4 border-blue-500' : ''}`}
-                onClick={() => handleMenuClick('/')}
+                className={`cursor-pointer ${isActive('/home') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'} `}
+                onClick={() => handleMenuClick('/home')}
             >
                 Home
             </div>
             <div
-                className={`cursor-pointer ${isActive('/about') ? 'border-b-4 border-blue-500' : ''}`}
+                className={`cursor-pointer ${isActive('/about') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'} `}
                 onClick={() => handleMenuClick('/about')}
             >
                 About Me
             </div>
             <div
-                className={`cursor-pointer ${isActive('/education') ? 'border-b-4 border-blue-500' : ''}`}
+                className={`cursor-pointer ${isActive('/education') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'}`}
                 onClick={() => handleMenuClick('/education')}
             >
                 Education
             </div>
             <div
-                className={`cursor-pointer ${isActive('/skills') ? 'border-b-4 border-blue-500' : ''}`}
+                className={`cursor-pointer ${isActive('/skills') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'}`}
                 onClick={() => handleMenuClick('/skills')}
             >
                 Skills
             </div>
             <div
-                className={`cursor-pointer ${isActive('/projects') ? 'border-b-4 border-blue-500' : ''}`}
+                className={`cursor-pointer ${isActive('/projects') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'}`}
                 onClick={() => handleMenuClick('/projects')}
             >
                 Projects
             </div>
             <div
-                className={`cursor-pointer ${isActive('/contact') ? 'border-b-4 border-blue-500' : ''}`}
+                className={`cursor-pointer ${isActive('/contact') ? 'border-b-4 border-blue-500' : 'transform hover:scale-125 transition-all'}`}
                 onClick={() => handleMenuClick('/contact')}
             >
                 Contact

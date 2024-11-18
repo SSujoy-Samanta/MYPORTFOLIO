@@ -55,7 +55,7 @@ export const projects: Project[] = [
       technologies: ['Python'],
       link: '',
       image: 'jarvis.svg',
-      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT',
+      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT/tree/main/JARVIS%20AI',
     },
     {
       title: 'DRS',
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       technologies: ['Python'],
       link: '',
       image: 'drs.svg',
-      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT',
+      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT/tree/main/DRS',
     },
     {
       title: 'Movement Detector',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       technologies: ['Python'],
       link: '',
       image: 'md.svg',
-      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT',
+      githubLink: 'https://github.com/SSujoy-Samanta/PY_PROJECT/tree/main/MOVEMENT_DETECTOR',
     },
     {
       title: 'Currency Converter',

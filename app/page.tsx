@@ -1,9 +1,10 @@
-import {HeroPage} from "@/components/HeroPage";
+import SplashScreen from "@/components/Flash";
 
 export default function Home() {
+  
   return (
     <div className="h-full w-full" >
-      <HeroPage/>
+      <SplashScreen />
     </div>
   );
 }

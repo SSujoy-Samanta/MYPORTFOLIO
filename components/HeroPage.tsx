@@ -18,7 +18,7 @@ export const HeroPage=()=> {
     
   return (
     <div className="h-full">
-        <div className="h-4/6 flex flex-col justify-start pl-5 md:pl-24 lg:pl-40 pb-40 pt-10 bg-gradient-to-r from-cyan-600/85 via-sky-600/85 to-blue-600/85 text-white gap-2">
+        <div className="h-4/6 flex md:flex-row flex-col-reverse justify-between pl-5 md:pl-24 lg:pl-40 pb-40 pt-10 bg-gradient-to-r from-cyan-600/85 via-sky-600/85 to-blue-600/85 text-white gap-2">
           <div className='animate-slideInLeft '>
             <h1 className="lg:text-5xl sm:text-3xl text-2xl font-bold text-black flex gap-1 md:flex-row  flex-col"><p className="text-amber-700">Hi,</p> <p>I'm Sujoy Samanta.</p></h1>
             <div className='flex justify-start items-center gap-2 md:text-2xl text-xl mt-2'>
@@ -57,6 +57,11 @@ export const HeroPage=()=> {
                     <p>Contact</p>
                   </div>
                 </SecondaryButton>
+            </div>
+          </div>
+          <div className='flex justify-center items-center lg:w-3/6 md:w-2/6 w-full h-full'>
+            <div className='flex justify-center items-center  border-animate rounded-full  transition-transform transform p-1'>
+              <img src="my-profile.png" alt="profile" className='lg:h-60 lg:w-60 h-48 w-48 object-contain bg-black rounded-full' />
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ export const AboutMe=()=>{
                 onClick={()=>{
                   router.push('/contact');
                 }}
-                className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-full text-lg transition duration-300 hover:shadow-md"
+                className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-full text-lg transition duration-300 hover:shadow-md animate-bounce"
               >
                 Get in Touch
               </button>
