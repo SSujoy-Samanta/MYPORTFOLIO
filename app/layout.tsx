@@ -29,11 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-gray-900 via-neutral-950 to-slate-900 text-white flex flex-col min-h-screen overflow-x-hidden `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-gray-900 via-neutral-950 to-slate-900 text-white flex flex-col min-h-screen overflow-x-hidden`}
       >
         <Provider>
-          <AppBar />
-          <main className="flex-grow flex flex-col h-full w-full">{children}</main>
+          <header className="fixed z-30 w-full">
+            <AppBar />
+          </header>
+          <main className="flex-grow flex flex-col h-full w-full mt-20 sm:mt-28">{children}</main>
           <footer><Footer /></footer>
         </Provider>
       </body>
