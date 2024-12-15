@@ -13,7 +13,7 @@ export const ContactMe= () => {
     };
 
     return (
-        <section id="contact" className="bg-gradient-to-r from-sky-600/70 to-cyan-600/70 py-16 px-4 text-center flex flex-col justify-center items-center">
+        <section id="contact" className="bg-gradient-to-r from-sky-600/70 to-cyan-600/70 py-16 px-4 text-center flex flex-col justify-center items-center overflow-x-hidden">
             <div className="animate-slideInLeft flex flex-col justify-center items-center">
                 <p className="text-lg font-bold text-gray-400">Get in Touch</p>
                 <h2 className="text-3xl font-semibold mb-12 text-amber-700">Contact Me</h2>

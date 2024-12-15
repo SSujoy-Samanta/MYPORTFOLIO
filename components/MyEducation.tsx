@@ -8,7 +8,7 @@ export const MyEducation = () => {
 
 
   return (
-    <section id="education-experience" className="bg-gradient-to-r from-black/50 to-blue-600/50 text-white py-16 px-4 md:px-16 w-full">
+    <section id="education-experience" className="bg-gradient-to-r from-black/50 to-blue-600/50 text-white py-16 px-4 md:px-16 w-full overflow-x-hidden">
       <div className="w-full mx-auto text-center">
         <p className="font-lg text-gray-500 font-bold">Explore The Path</p>
         <h2 className="text-3xl font-semibold mb-12 text-teal-500">My Journey</h2>

@@ -32,9 +32,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-gray-900 via-neutral-950 to-slate-900 text-white flex flex-col min-h-screen overflow-x-hidden`}
       >
         <Provider>
-          <header className="fixed z-30 w-full">
+          <nav className="fixed z-30 w-full">
             <AppBar />
-          </header>
+          </nav>
           <main className="flex-grow flex flex-col h-full w-full mt-20 sm:mt-28">{children}</main>
           <footer><Footer /></footer>
         </Provider>
