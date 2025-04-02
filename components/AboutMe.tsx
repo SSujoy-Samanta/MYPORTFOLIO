@@ -58,7 +58,7 @@ export const AboutMe = () => {
             <div className="md:col-span-8 space-y-6">
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
                 Hi, I'm <span className="font-bold text-teal-400">Sujoy Samanta</span>, a passionate software engineer with expertise in full-stack web development and <span className="font-bold text-orange-400">blockchain technologies</span>. 
-                I specialize in building modern, scalable applications with React, Next.js, and Node.js while also developing <span className="font-bold text-orange-400">smart contracts</span> on Ethereum and Solana.
+                I specialize in building modern, scalable applications with React, Next.js, and Node.js while also developing <span className="font-bold text-orange-400">smart contracts</span> on Ethereum and Solana Blockchain.
               </motion.p>
               
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
