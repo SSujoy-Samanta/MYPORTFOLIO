@@ -1,6 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { Logo } from "./Logo";
 import { InstagramIcon } from "./CustomSvg/Insta";
 import { FaceBookIcon } from "./CustomSvg/Facebook";
 import { TwitterIcon } from "./CustomSvg/Twitter";
@@ -8,66 +6,82 @@ import { LinkedInSvg } from "./CustomSvg/Linkdin";
 import { EmailSvg } from "./CustomSvg/Email";
 
 export const Footer = () => {
-  const handleOpenNewTab = (path: string) => {
+  const currentYear = new Date().getFullYear();
+
+  const handleOpenNewTab = (path:string) => {
     window.open(path, "_blank");
   };
+  
   const handleEmailClick = () => {
-    const email = "sujoy.samanta.contact@gmail.com"; // replace with your email
-    const subject = "Inquiry from Portfolio"; // optional subject
-    const body = "Hello, I'm interested in connecting with you!"; // optional body
-    // Redirect to Gmail compose with pre-filled fields
+    const email = "sujoy.samanta.contact@gmail.com";
+    const subject = "Inquiry from Portfolio";
+    const body = "Hello, I'm interested in connecting with you!";
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
   };
-  const currentYear = new Date().getFullYear();
-  const router = useRouter();
+  
+  const socialLinks = [
+    { 
+      Icon: InstagramIcon, 
+      url: "https://www.instagram.com/sujoy_samanta2003/profilecard/?igsh=MTB5cjd0Njkwd2hraQ==",
+      delay: "100ms" 
+    },
+    { 
+      Icon: FaceBookIcon, 
+      url: "https://www.facebook.com/share/183i2FKkiH/",
+      delay: "200ms" 
+    },
+    { 
+      Icon: TwitterIcon, 
+      url: "https://x.com/SujoySaman71471?t=HOb21AvnLTlOUb9EN7yhIw&s=09",
+      delay: "300ms" 
+    },
+    { 
+      Icon: LinkedInSvg, 
+      url: "https://www.linkedin.com/in/sujoy-samanta-b06939336",
+      delay: "400ms" 
+    }
+  ];
+
   return (
-    <div className="p-2 flex flex-col bg-gradient-to-r from-cyan-900  to-sky-900 w-full text-white items-end lg:text-base sm2:text-sm xxs:text-xs">
-      <div className="grid grid-cols-1 w-full">
-        <div className="flex flex-row w-full gap-4 p-2 col-span-1 ">
-          <div className="flex flex-col justify-center items-center w-full gap-4 p-2 xl:ml-0 sm2:ml-10 text-purple-500">
-            <div className="lg:text-lg sm2:text-base xxs:text-xs text-blue-600 font-bold">
-              CONNECT WITH ME
+    <footer className={`bg-gray-900 text-gray-400 py-12 px-8`}>
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center justify-center">
+          {/* Connect with me section */}
+          <div className={`w-full max-w-2xl`}>
+
+            <h2 className="text-lg md:text-xl bg-gradient-to-b from-blue-200 to-sky-700 bg-white bg-clip-text font-black tracking-tighter text-transparent text-center mb-6">
+              Connect with me
+            </h2>
+            
+            {/* Social icons grid */}
+            <div className="grid grid-cols-4 gap-6 mb-8 max-w-md mx-auto">
+              {socialLinks.map((social, index) => (
+                <div 
+                  key={index}
+                  className={`flex justify-center items-center transition-all duration-500 transform hover:scale-110 cursor-pointer`}
+                  style={{ transitionDelay: social.delay }}
+                >
+                  <social.Icon onClick={() => handleOpenNewTab(social.url)} />
+                </div>
+              ))}
             </div>
-            <div className="grid grid-cols-4 lg:w-2/6 md:w-3/6 sm2:w-4/6 xxs:w-4/5 pl-2 gap-1 sm2:gap-y-8 xxs:gap-y-4">
-              <div className="flex justify-center items-center  cursor-pointer">
-                <InstagramIcon
-                  onClick={() => {
-                    handleOpenNewTab("https://www.instagram.com/sujoy_samanta2003/profilecard/?igsh=MTB5cjd0Njkwd2hraQ==");
-                  }}
-                />
-              </div>
-              <div className="flex  justify-center items-center  cursor-pointer">
-                <FaceBookIcon
-                  onClick={() => {
-                    handleOpenNewTab("https://www.facebook.com/share/183i2FKkiH/");
-                  }}
-                />
-              </div>
-              <div className="flex justify-center items-center  cursor-pointer">
-                <TwitterIcon
-                  onClick={() => {
-                    handleOpenNewTab("https://x.com/SujoySaman71471?t=HOb21AvnLTlOUb9EN7yhIw&s=09");
-                  }}
-                />
-              </div>
-              <div className="flex justify-center items-center  cursor-pointer">
-                <LinkedInSvg
-                  onClick={() => {
-                    handleOpenNewTab("https://www.linkedin.com/in/sujoy-samanta-b06939336");
-                  }}
-                />
-              </div>
-              <div onClick={handleEmailClick} className="col-span-4 cursor-pointer flex flex-col items-center justify-center">
-                <EmailSvg />
-                <p className="font-bold  ">sujoy.samanta.contact@gmail.com</p>
-              </div>
+            
+            {/* Email section */}
+            <div 
+              onClick={handleEmailClick} 
+              className={`cursor-pointer flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 ease-in-out`}
+            >
+              <EmailSvg />
+              <p className="font-bold mt-2 text-sm md:text-base text-amber-600">sujoy.samanta.contact@gmail.com</p>
             </div>
           </div>
         </div>
+        
+        {/* Copyright section */}
+        <div className={`border-t border-gray-800 mt-12 pt-8 text-center text-gray-500`}>
+          <p className="font-medium text-sm md:text-base">&copy; {currentYear} Sujoy Samanta. All Rights Reserved.</p>
+        </div>
       </div>
-      <footer className="pt-4 text-black font-bold text-center w-full bottom-0">
-        <p>&copy; {currentYear} Sujoy Samanta. All Rights Reserved.</p>
-      </footer>
-    </div>
+    </footer>
   );
 };

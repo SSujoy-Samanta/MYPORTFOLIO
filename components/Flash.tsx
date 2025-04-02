@@ -26,10 +26,11 @@ const SplashScreen: React.FC = () => {
 
   return (
     <div className={`splash-screen ${fadeOut ? 'fade-out' : ''}`}>
-      <div className="logo">
+      <div className="logo w-full h-full">
         <Initial />
       </div>
     </div>
+  
   );
 };
 

@@ -214,26 +214,6 @@
   color: transparent;
 }
 
-.back {
-  color: transparent;
-  -webkit-text-stroke: 4px rgb(5, 163, 174);
-  font-size: 150px; /* Or use Tailwind's text size utilities */
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-image: url("/bg.png");
-  background-position: 0 0;
-  background-size: cover; /* Adjust if needed */
-  animation: backani 20s linear infinite;
-  
-}
-
-
-@keyframes backani{
-  100%{
-    background-position: 2000px 0;
-  }
-}
-
 .letter p:nth-child(1) {
   animation-delay: 0s;
 }
@@ -287,67 +267,147 @@
   -webkit-background-clip: text;
   font-weight: bold;
 }
-@media (min-width: 375px) {
-  /* Tailwind `lg:` breakpoint */
-  .back {
-    font-size: 65px !important;
-    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
-    line-height: 4rem !important;
-  }
-  .letter p{
-    font-size: 65px !important;
-    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
-  }
-}
-@media (min-width: 425px) {
-  /* Tailwind `lg:` breakpoint */
-  .back {
-    font-size: 70px !important;
-    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
-    line-height: 4rem !important;
-  }
-  .letter p{
-    font-size: 70px !important;
-    -webkit-text-stroke: 1px rgb(5, 163, 174) !important;
-  }
+
+/* Base styles */
+.initial p {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
 }
 
-@media (min-width: 640px) {
-  /* Tailwind `sm:` breakpoint */
-  .back {
-    font-size: 100px !important;
-    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
-    line-height: 7rem !important;
-  }
-  .letter p{
-    font-size: 100px !important;
-    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
-  }
+/* Letter reveal animation */
+.letter-reveal p {
+  opacity: 1;
+  transform: translateY(0);
+  -webkit-text-stroke: 2px rgb(5, 163, 174);
+  color: transparent;
+  animation: revealLetter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-@media (min-width: 768px) {
-  /* Tailwind `md:` breakpoint */
-  .back {
-    font-size: 120px !important;
-    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
-    line-height: 8rem !important;
-  }
-  .letter p{
-    font-size: 120px !important;
-    -webkit-text-stroke: 3px rgb(5, 163, 174) !important;
-  }
+@keyframes revealLetter {
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+  60% { transform: translateY(-10px) scale(1.1); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@media (min-width: 1024px) {
-  /* Tailwind `lg:` breakpoint */
-  .back {
-    font-size: 150px !important;
-    -webkit-text-stroke: 4px rgb(5, 163, 174) !important;
-    line-height: 8rem !important;
-  }
-  .letter p{
-    font-size: 150px !important;
+/* Pulse glow animation */
+.pulse-glow p {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #9d00ff, #ff00c8);
+  background-size: 300% 300%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientShift 2s ease infinite;
+  filter: drop-shadow(0 0 8px rgba(5, 163, 174, 0.7));
+  text-shadow: 0 0 15px rgba(5, 163, 174, 0.5);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .letter-reveal p, .pulse-glow p, .background-flow p, .float p {
+    -webkit-text-stroke: 1px rgb(5, 163, 174);
+    font-size: 3rem;
   }
 }
 
+@media (min-width: 641px) and (max-width: 768px) {
+  .letter-reveal p, .pulse-glow p, .background-flow p, .float p {
+    -webkit-text-stroke: 1.5px rgb(5, 163, 174);
+    font-size: 4rem;
+  }
+}
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .letter-reveal p, .pulse-glow p, .background-flow p, .float p {
+    -webkit-text-stroke: 2px rgb(5, 163, 174);
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .letter-reveal p, .pulse-glow p, .background-flow p, .float p {
+    -webkit-text-stroke: 3px rgb(5, 163, 174);
+    font-size: 7rem;
+  }
+}
+
+/* Add these styles to your global CSS file */
+
+/* For smoother animations */
+.backface {
+  backface-visibility: hidden;
+}
+
+/* Blockchain node connections animation */
+.node-connection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(45, 212, 191, 0) 0%,
+    rgba(45, 212, 191, 0.3) 50%,
+    rgba(45, 212, 191, 0) 100%
+  );
+  transform-origin: center;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Text gradient animation */
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradientText 5s ease infinite;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle hover effects for skill bubbles */
+.skill-bubble {
+  transition: all 0.3s ease;
+}
+
+.skill-bubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -10px rgba(20, 184, 166, 0.3);
+}
+
+/* Blockchain-themed glow effect */
+.blockchain-glow {
+  box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+  animation: glowPulse 4s infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.5);
+  }
+}

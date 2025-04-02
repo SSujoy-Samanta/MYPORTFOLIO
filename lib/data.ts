@@ -4,7 +4,7 @@ export interface Institute {
     ending: number;
     name: string;
     details: string;
-    grade:string
+    percentage:string
 }
 
 export interface Experience {
@@ -25,7 +25,7 @@ export const allInstitutes: Institute[] = [
       ending: 2026,
       name: "Techno InterNational Newtown",
       details: "Currently pursuing a Bachelor's degree in Computer Science. Involved in various projects and coursework related to web development, DSA, OOPS and software engineering principles.",
-      grade:"NONE"
+      percentage:"75%"
     },
     {
         degree: "Higher Secondary Education(HS)",
@@ -33,15 +33,14 @@ export const allInstitutes: Institute[] = [
         ending: 2022,
         name: "Shyam Sundarpur Patna High School",
         details: "Completed high school with a focus on science subjects, where I developed a strong foundation in mathematics, physics, chemistry and computer science.",
-        grade:"A"
+        percentage:"95%"
       },
     {
       degree: "Secondary Education(Madhymick)",
       starting: 2014,
       ending: 2020,
       name: "Shyam Sundarpur Patna High School",
-      details: "Focused on foundational subjects including Mathematics, Science, English,Bengail, History and Geography. Achieved a distinction in final exams and participated in inter-school science competitions.",
-      grade:"A"
+      details: "Focused on foundational subjects including Mathematics, Science, English,Bengail, History and Geography. Achieved a distinction in final exams and participated in inter-school science competitions.",percentage:"93%"
     },
 
 ];
@@ -58,13 +57,18 @@ export const MyExperience: Experience[] = [
       ],
     },
     {
-      subject: "Software Engineer",
-      type: "Full-Time",
-      starting: 2022,
-      ending: 2023,
+      subject: "Blockchain Development",
+      type: "Internship",
+      starting: 2024,
+      ending: 2025,
       description: [
-        { title: "Collaborated with a team of engineers to develop scalable backend services" },
-        { title: "Optimized database queries and improved application performance" },
+        { 
+          title: "Collaborated with a team to build and deploy smart contracts on Ethereum using Solidity and on Solana using Rust, integrating them seamlessly with the application" 
+        },        
+        { title: "Designed and implemented RESTful APIs to interact with blockchain data and ensure seamless user experience" },
+        { title: "Conducted thorough testing of smart contracts and web app functionality to ensure reliability and security" },
+        { title: "Worked on optimizing blockchain transaction speed and reducing gas fees in the app" },
+        { title: "Gained hands-on experience in developing decentralized applications (dApps) and integrating them with web technologies" }
       ],
     },
     {
@@ -85,6 +89,10 @@ export const skills = {
   technical: [
     { name: 'JavaScript', img: 'js.svg',percentage:80 },
     { name: 'TypeScript', img: 'ts.svg',percentage:85 },
+    { name: 'Solana', img: 'solana.svg',percentage:80 },
+    { name: 'Ethereum', img: 'ethereum.png',percentage:85 },
+    { name: 'Rust', img: 'rust.png',percentage:70 },
+    { name: 'solidity', img: 'solidity.svg',percentage:90 },
     { name: 'DSA', img: 'dsa.svg',percentage:75 },
     { name: 'OOPS', img: 'oops.svg',percentage:90 },
     { name: 'React', img: 'react.svg',percentage:85 },

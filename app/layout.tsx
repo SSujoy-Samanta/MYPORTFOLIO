@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppBar } from "@/components/Appbar";
 import { Footer } from "@/components/Footer";
 import { Provider } from "@/components/Provider";
+import { Theme } from "@/components/Theme";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,11 +33,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-gray-900 via-neutral-950 to-slate-900 text-white flex flex-col min-h-screen overflow-x-hidden`}
       >
         <Provider>
-          <nav className="fixed z-30 w-full">
+         <Theme className="w-full h-full">
             <AppBar />
-          </nav>
-          <main className="flex-grow flex flex-col h-full w-full mt-20 sm:mt-28">{children}</main>
-          <footer><Footer /></footer>
+            <main className="flex-1 h-full w-full mt-20 sm:mt-28">{children}</main>
+         </Theme>
+         <Footer />
         </Provider>
       </body>
     </html>
