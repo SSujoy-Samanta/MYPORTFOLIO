@@ -3,7 +3,7 @@ import { allInstitutes, Institute } from "@/lib/data";
 
 export const Journey = () => {
   // Fix: Initialize with proper typing for the state array
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex] = useState<number | null>(null);
   const [visible, setVisible] = useState<number[]>([]);
   
     useEffect(() => {

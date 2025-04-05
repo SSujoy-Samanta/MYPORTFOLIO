@@ -107,7 +107,7 @@ export const ExperienceModal = () => {
 
                 {/* Description List with animation */}
                 <ul className="list-none w-full mt-4 text-gray-300 leading-relaxed flex flex-col justify-start gap-3">
-                  {x.description.map((y: any, index: number) => (
+                  {x.description.map((y: {title:string}, index: number) => (
                     <li 
                       key={index} 
                       className="text-start flex items-start gap-2 p-2 rounded hover:bg-sky-800/20 transition-all duration-300"

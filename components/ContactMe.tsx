@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { PrimaryButton } from "./Buttons/PrimaryButton";
 import { motion } from "framer-motion";
 
 export const ContactMe= () => {
@@ -55,7 +54,7 @@ export const ContactMe= () => {
                 </motion.div>}
                 <div className="animate-slideInLeft flex flex-col justify-center items-center">
                     <p className="text-lg text-gray-200/50 mb-8 leading-relaxed break-words lg:w-3/6 md:w-4/6 w-full">
-                    Whether you're looking to discuss a new project, ask a question, or just say hello – I'm here to connect! I love collaborating on exciting projects, so feel free to reach out. Let’s turn ideas into impactful solutions together.
+                    Whether you&apos;re looking to discuss a new project, ask a question, or just say hello – I&apos;m here to connect! I love collaborating on exciting projects, so feel free to reach out. Let&apos;s turn ideas into impactful solutions together.
                     </p>
                 </div>
                 {/* Social Media Links */}

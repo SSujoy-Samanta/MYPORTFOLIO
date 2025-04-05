@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '@/lib/project';
 import { PrimaryButton } from './Buttons/PrimaryButton';
+import { useRouter } from 'next/navigation';
 
 
 
 export const MyProjects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const router=useRouter();
   useEffect(()=>{
       if(!isVisible){
         setIsVisible(true);
@@ -95,7 +97,7 @@ export const MyProjects = () => {
                           {
                               project.link && <div className='py-4'>
                                   <PrimaryButton onClick={()=>{
-                                    alert(`${project.link}`);
+                                    router.push(`${project.link}`);
                                   }}>Demo</PrimaryButton>
                               </div>
                           }

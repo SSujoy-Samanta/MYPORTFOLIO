@@ -29,7 +29,7 @@ export const HeroPage=()=> {
     <div className="h-full">
         <div className="h-4/6 flex md:flex-row flex-col-reverse justify-between pl-5 md:pl-24 lg:pl-40 pb-40 pt-10 text-white gap-2 ">
           <div className='animate-slideInLeft space-y-3'>
-            <h1 className="lg:text-5xl sm:text-3xl text-xl font-bold text-white flex gap-1 md:flex-row  flex-col"><p className="text-amber-700">Hi,</p> <p>I'm Sujoy Samanta.</p></h1>
+            <h1 className="lg:text-5xl sm:text-3xl text-xl font-bold text-white flex gap-1 md:flex-row  flex-col"><p className="text-amber-700">Hi,</p> <p>I&apos;m Sujoy Samanta.</p></h1>
             <div className='flex justify-start items-center gap-2 md:text-2xl text-base mt-2'>
               <p className="md:text-2xl text-xl text-gray-400">A Passionate</p>
               <div className='text-yellow-600 font-bold'>

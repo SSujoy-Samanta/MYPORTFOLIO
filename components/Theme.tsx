@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 interface ThemeProps{
     children:React.ReactNode,
@@ -11,7 +11,7 @@ export const Theme = ({children,className}:ThemeProps) => {
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => {
+            ([]) => {
 
             },
             { threshold: 0.1 }

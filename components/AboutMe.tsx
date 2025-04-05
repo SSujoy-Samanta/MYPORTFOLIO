@@ -18,7 +18,7 @@ export const AboutMe = () => {
     if(!isVisible){
       setIsVisible(true);
     }
-  },[])
+  },[isVisible])
 
  
   const itemVariants = {
@@ -57,12 +57,12 @@ export const AboutMe = () => {
             {/* Main content */}
             <div className="md:col-span-8 space-y-6">
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
-                Hi, I'm <span className="font-bold text-teal-400">Sujoy Samanta</span>, a passionate software engineer with expertise in full-stack web development and <span className="font-bold text-orange-400">blockchain technologies</span>. 
+                Hi, I&apos;m <span className="font-bold text-teal-400">Sujoy Samanta</span>, a passionate software engineer with expertise in full-stack web development and <span className="font-bold text-orange-400">blockchain technologies</span>. 
                 I specialize in building modern, scalable applications with React, Next.js, and Node.js while also developing <span className="font-bold text-orange-400">smart contracts</span> on Ethereum and Solana Blockchain.
               </motion.p>
               
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
-                My journey in blockchain includes developing <span className="font-bold text-orange-400">decentralized applications (dApps)</span> using <span className="font-bold text-orange-400">Solidity</span> for Ethereum and <span className="font-bold text-orange-400">Rust</span> for Solana. I'm passionate about creating secure, efficient smart contracts and exploring innovative blockchain solutions.
+                My journey in blockchain includes developing <span className="font-bold text-orange-400">decentralized applications (dApps)</span> using <span className="font-bold text-orange-400">Solidity</span> for Ethereum and <span className="font-bold text-orange-400">Rust</span> for Solana. I&apos;m passionate about creating secure, efficient smart contracts and exploring innovative blockchain solutions.
               </motion.p>
               
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
@@ -70,7 +70,7 @@ export const AboutMe = () => {
               </motion.p>
               
               <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
-                Beyond tech, I'm an athlete who enjoys cricket, football, and staying fit at the gym. I believe a healthy body fosters a creative mind. I also love traveling to experience new cultures and gain fresh perspectives that inspire my work.
+                Beyond tech, I&apos;m an athlete who enjoys cricket, football, and staying fit at the gym. I believe a healthy body fosters a creative mind. I also love traveling to experience new cultures and gain fresh perspectives that inspire my work.
               </motion.p>
             </div>
             
