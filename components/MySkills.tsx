@@ -76,14 +76,6 @@ export const MySkills = () => {
       }
     })
   };
-  
-  const headingUnderlineVariants = {
-    hidden: { width: "0%" },
-    visible: { 
-      width: "40%",
-      transition: { duration: 1, delay: 0.5 }
-    }
-  };
 
   return (
     <motion.div
