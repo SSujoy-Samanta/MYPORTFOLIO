@@ -1,131 +1,202 @@
 'use client'
 
 import { skills } from '@/lib/data';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { SkillCard } from './SkillCard';
+import { motion, useInView } from "framer-motion";
 import { SkillBox } from './SkillBox';
-import { motion } from "framer-motion";
 
+// Linear progress bar component for professional skills
+// export const SkillBox = ({ max }: { max: number }) => {
+//   const [width, setWidth] = useState(0);
+//   const progressRef = useRef(null);
+//   const isInView = useInView(progressRef, { once: true });
+
+//   useEffect(() => {
+//     if (isInView) {
+//       setWidth(max);
+//     }
+//   }, [isInView, max]);
+
+//   return (
+//     <div ref={progressRef} className="w-full h-2 bg-gray-800/60 rounded-full overflow-hidden">
+//       <motion.div 
+//         className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
+//         initial={{ width: 0 }}
+//         animate={{ width: `${width}%` }}
+//         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+//       />
+//     </div>
+//   );
+// };
 
 export const MySkills = () => {
-  const [showTechnical, setShowTechnical] = useState(false);
-  const [showProfessional, setShowProfessional] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  useEffect(()=>{
-    if(!isVisible){
+  const sectionRef = useRef(null);
+  const sectionInView = useInView(sectionRef, { 
+    once: true,
+    margin: "-100px 0px" 
+  });
+
+  useEffect(() => {
+    if (sectionInView) {
       setIsVisible(true);
     }
-  },[])
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 }
-    }
-  };
+  }, [sectionInView]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.3
-        }
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
     }
   };
-  
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowTechnical(true), 500); // Show technical skills after 500ms
-    const timer2 = setTimeout(() => setShowProfessional(true), 1000); // Show professional skills after 1000ms
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timer2);
-    };
-  }, []);
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: { 
+        duration: 0.5,
+        delay: 0.3 + (i * 0.1),
+        ease: "easeOut"
+      }
+    })
+  };
+  
+  const headingUnderlineVariants = {
+    hidden: { width: "0%" },
+    visible: { 
+      width: "40%",
+      transition: { duration: 1, delay: 0.5 }
+    }
+  };
 
   return (
     <motion.div
-      className="space-y-10 mx-auto md:min-w-7xl px-1"
-      variants={containerVariants}
+      ref={sectionRef}
+      className="relative overflow-hidden h-full"
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
+      variants={containerVariants}
     >
+      
       {/* Header */}
-      {<motion.div variants={itemVariants} className="text-center">
-        <span className="inline-block px-4 py-1 mb-4 text-xs font-medium tracking-wider text-teal-400 uppercase bg-teal-900/30 rounded-full">Explore My </span>
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-teal-200 bg-clip-text text-transparent">Skills</h2>
-      </motion.div>}
-        <section id="skills" className="py-5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6  gap-12">
-            {/* Technical Skills */}
-            <div className=" p-6 bg-slate-800 bg-opacity-50 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-500 lg:col-span-4 animate-slideInLeft z-20">
+      <motion.div variants={itemVariants} className="text-center mb-16  z-10">
+        <span className="inline-block px-4 py-1 mb-4 text-sm font-medium tracking-wider text-teal-400 uppercase bg-teal-900/30 rounded-full shadow-lg shadow-teal-900/20">
+          Expertise
+        </span>
+        <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-teal-200 bg-clip-text text-transparent pb-2">
+          My Skills
+        </h2>
+        
+      </motion.div>
 
-              <h3 className="text-2xl bg-gradient-to-b from-purple-200 to-purple-700 bg-white bg-clip-text font-black tracking-tighter text-transparent mb-6 text-center">
-                Technical Skills
-              </h3>
-            
-              <ul className={`list-none ${showTechnical ? 'fadeIn' : ''} transition-all duration-1000 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-1 md:gap-2 overflow-auto scrollbar h-svh  pt-2`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10">
+          
+          {/* Technical Skills */}
+          <motion.div 
+            variants={itemVariants}
+            className="lg:col-span-8 relative"
+          >
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-800/80 backdrop-blur-sm border border-slate-700/40 shadow-xl">
+              <div className="flex items-center justify-between mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-300 to-indigo-400 bg-clip-text text-transparent">
+                  Technical Skills
+                </h3>
+                <motion.div 
+                  className="hidden md:block h-[2px] bg-gradient-to-r from-purple-500/60 to-transparent rounded-full w-1/3"
+                  initial={{ width: 0 }}
+                  animate={{ width: "30%" }}
+                  transition={{ delay: 0.8, duration: 1 }}
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {skills.technical.map((skill, index) => (
-                  <li
+                  <motion.div
                     key={index}
-                    className="text-lg text-gray-600 mb-3 text-center animate__animated animate__fadeIn animate__delay-0.5s"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    custom={index}
+                    variants={cardVariants}
+                    className="h-full flex justify-center"
                   >
-                    <div className=" inline-block h-52 w-52 rounded-md bg-gradient-to-r from-pink-500/85 via-red-500/85 to-orange-500/85 text-white font-medium shadow-lg transform hover:scale-110 transition-all duration-300">
-                      
-                      <SkillCard max={skill.percentage}>
+                    <div className="w-full h-64 max-w-xs rounded-xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300">
+                      <div className="relative h-full w-full flex justify-center items-center p-4">
+                        <SkillCard max={skill.percentage}>
+                          
                           <img
-                              src={skill.img}
-                              alt={skill.img}
-                              style={{ width: "50px", height: "50px" }}
-                              className="slider-image aspect-auto object-contain rounded-2xl "
+                            src={skill.img}
+                            alt={skill.name}
+                            width={40}
+                            height={40}
+                            className="object-contain rounded-md"
                           />
-                          <p className='text-gray-700 font-normal'>{skill.name}</p>
-                      </SkillCard>
-                      
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Professional Skills */}
-            <div className="overflow-auto md:h-4/6 h-full p-6  bg-indigo-800 bg-opacity-50 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-500 lg:col-span-2 animate-slideInUp z-20">
-              <h3 className="text-2xl bg-gradient-to-b from-cyan-200 to-cyan-700 bg-white bg-clip-text font-black tracking-tighter text-transparent mb-6 text-center">
-                Professional Skills
-              </h3>
-              <ul className={`list-none ${showProfessional ? 'fadeIn' : ''} transition-all duration-1000`}>
-                {skills.professional.map((skill, index) => (
-                  <li
-                    key={index}
-                    className="text-lg text-gray-600 mb-3 text-center animate__animated animate__fadeIn animate__delay-1s"
-                    style={{ animationDelay: `${index * 0.2}s` }}
-                  >
-                    <div className="inline-block w-5/6 p-2 mx-auto rounded-md bg-gradient-to-r from-green-500/80 via-yellow-500/80 to-red-500/80 text-black font-medium shadow-lg transform hover:scale-110 transition-all duration-300 ">
-                      <div className='flex justify-start flex-col items-start'>
-                          <p>{skill.name}</p>
-                          <div className='w-full'> <SkillBox max={skill.percentage}/></div>
+                          
+                          <p className="text-white font-medium text-lg mt-2">{skill.name}</p>
+                        </SkillCard>
                       </div>
                     </div>
-                  </li>
-                
+                  </motion.div>
                 ))}
-              </ul>
-            
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Professional Skills */}
+          <motion.div 
+            variants={itemVariants}
+            className="lg:col-span-4 relative"
+          >
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-indigo-900/80 to-blue-800/70 backdrop-blur-sm border border-indigo-700/40 shadow-xl h-auto">
+              <div className="flex items-center justify-between mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  Professional Skills
+                </h3>
+                <motion.div 
+                  className="hidden md:block h-[2px] bg-gradient-to-r from-cyan-500/60 to-transparent rounded-full w-1/3"
+                  initial={{ width: 0 }}
+                  animate={{ width: "30%" }}
+                  transition={{ delay: 1, duration: 1 }}
+                />
+              </div>
+              
+              <div className="space-y-8">
+                {skills.professional.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + (index * 0.15), duration: 0.6 }}
+                    className="space-y-2"
+                  >
+                    <div className="inline-block w-full p-4 mx-auto rounded-md bg-gradient-to-r from-green-500/80 via-yellow-500/80 to-red-500/80 text-black font-medium shadow-lg transform hover:scale-110 transition-all duration-300 ">
+                        <div className='flex justify-start flex-col items-start ted'>
+                            <p>{skill.name}</p>
+                            <div className='w-full'> <SkillBox max={skill.percentage}/></div>
+                        </div>
+                      </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+          
         </div>
-      </section>
-    </motion.div> 
-    
+      </div>
+    </motion.div>
   );
 };
-
-
-
-
